@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>G Meet</title>
+</head>
+
+<body>
+  <div class="header">
+    <div class="meet-logo"><img src="./assets/meet.png" width="150px" height="50px" /></div>
+    <div class="header-options">
+      <p><span id="datetime"></span></p>
+      <script>
+        var dt = new Date();
+        document.getElementById("datetime").innerHTML = dt.toLocaleString();
+      </script>
+      <div class="buttons">Support</div>
+      <div class="buttons">Settings</div>
+    </div>
+    <img src="./assets/hamburger_icon.png" class="hamberger" onclick="hamburgerfunction()" />
+    <script>
+      function hamburgerfunction() {
+        var hamRef = document.getElementById("responsive-header");
+        if (hamRef.style.display === "none") {
+          hamRef.style.display = "flex";
+        } else {
+          hamRef.style.display = "none";
+        }
+        console.log(hamRef)
+      };
+    </script>
+  </div>
+  <div class="header-options-responsive" id="responsive-header">
+    <p><span id="datetime-responsive"></span></p>
+    <script>
+      var dt = new Date();
+      document.getElementById("datetime-responsive").innerHTML = dt.toLocaleString();
+    </script>
+    <div class="buttons">Support</div>
+    <div class="buttons">Settings</div>
+  </div>
+  <div class="main-content">
+    <div class="content-1">
+      <h1 class="larger-heading">Personalized Video <br>Conferencing Application</h1>
+      <p class="larger-text">Start a new Meeting</p>
+      <div class="meet-flex">
+        <!-- <div class="meeting bg-change" onclick="popfunction()">
+            Join a Meeting
+           </div> -->
+        <button id="myBtn" class="meeting bg-change">Join a Meeting</button>
+        <div id="myModal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <input class="buttons-popup" id="name-field" placeholder="Please enter name" type="text">
+            <button class="join-popup" type="submit" hidefocus="true" onclick="getJoin2()">Join</button>
+            <script src="functions.js"></script>
+          </div>
+        </div>
+        <!-- <script>
+          function popfunction() {
+            var popRef = document.getElementById("meeting-popup2");
+            if (popRef.style.display === "none") {
+              popRef.style.display = "block";
+            } else {
+              popRef.style.display = "none";
+            }
+            console.log(popRef)
+          };
+        </script> -->
+      </div>
+      <!-- <div class="meeting-popup2 fade" id="meeting-popup2">
+        <input class="buttons-popup" id="name-field" placeholder="Please enter name" type="text">
+        <input class="buttons-popup" id="link-field" placeholder="Please enter link" type="text">
+        <button type="submit" hidefocus="true" onclick="getJoin2()">Join</button>
+      </div> -->
+      <div class="border"></div>
+      <p class="larger-text"><span class="highlighted">Learn more</span> about G Meet.</p>
+      <div class="border"></div>
+    </div>
+    <div class="content-2">
+      <div class="slideshow-container">
+
+        <div class="mySlides fade">
+          <img src="./assets/Mask Group 2 (1).png" style="width:100%">
+          <div class="text">
+            <h2>Video Call and Conferencing</h2>Set up a Conference and chat with anyone anytime
+          </div>
+        </div>
+
+        <div class="mySlides fade">
+          <img src="./assets/Mask Group 2 (1).png" style="width:100%">
+          <div class="text">
+            <h2>See all of your colleagues together</h2>See more people at the same time.
+          </div>
+        </div>
+
+        <div class="mySlides fade">
+          <img src="./assets/Mask Group 2 (1).png" style="width:100%">
+          <div class="text">
+            <h2>Start your meeting anytime</h2>Click Instant Meeting to start a meeting and send invites to participants.
+          </div>
+        </div>
+
+        <div class="mySlides fade">
+          <img src="./assets/Mask Group 2 (1).png" style="width:100%">
+          <div class="text">
+            <h2>Your conference is safe</h2>One cannot join a meeting unless invited or admitted by the host.
+          </div>
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+      </div>
+      <br>
+
+      <div style="text-align: center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+      </div>
+
+      <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+        function plusSlides(n) {
+          showSlides(slideIndex += n);
+        }
+        function currentSlide(n) {
+          showSlides(slideIndex = n);
+        }
+        function showSlides(n) {
+          var i;
+          var slides = document.getElementsByClassName("mySlides");
+          var dots = document.getElementsByClassName("dot");
+          if (n > slides.length) { slideIndex = 1 }
+          if (n < 1) { slideIndex = slides.length }
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+          }
+          for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex - 1].style.display = "block";
+          dots[slideIndex - 1].className += " active";
+        }
+      </script>
+    </div>
+  </div>
+
+  <script>
+    var modal = document.getElementById("myModal");
+    var btn = document.getElementById("myBtn");
+    var span = document.getElementsByClassName("close")[0];
+    btn.onclick = function () {
+      modal.style.display = "block";
+    }
+    span.onclick = function () {
+      modal.style.display = "none";
+    }
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+</body>
+
+</html>
